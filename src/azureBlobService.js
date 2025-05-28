@@ -1,8 +1,12 @@
+
+const baseURL = process.env.NODE_ENV === 'development' ? 'http://localhost:4000' : 'dogbreedbackend-c3fahebfdgefcwf8.eastus2-01.azurewebsites.net';
+
 export async function uploadImage(file) {
   const formData = new FormData();
   formData.append('file', file);
 
-  const response = await fetch(`http://localhost:4000/upload`, {
+  console.log(baseURL, process.env.NODE_ENV)
+  const response = await fetch(`${baseURL}/upload`, {
     method: 'POST',
     body: formData,
   });
