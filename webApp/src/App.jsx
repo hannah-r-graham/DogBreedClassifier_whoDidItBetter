@@ -16,7 +16,7 @@ function App() {
       try {
         const imageUrl = await uploadImage(selectedFile);
         setUploadedImageUrl(imageUrl);
-        alert('Image uploaded successfully!');
+        alert('Image uploaded successfully! woof!');
       } catch (error) {
         alert('Failed to upload image. Please try again.');
       }
