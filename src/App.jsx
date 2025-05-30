@@ -152,7 +152,8 @@ function App() {
                   const [breed, confidence] = prediction.split(',').map(part => part.trim());
                   return (
                     <p key={index}>
-                      {formatText(breed)}, <em>Confidence: {confidence}</em>
+                      {formatText(breed)}
+                      {confidence && !isNaN(parseFloat(confidence)) ? `, Confidence: ${confidence}` : ''}
                     </p>
                   );
                 })}
