@@ -14,6 +14,10 @@ function App() {
     const file = event.target.files[0];
     setSelectedFile(file);
     console.log('Selected file:', file);
+
+    setCnnResults([]);
+    setOpenAiResult(null);
+    setSuccessMessage('');
   };
 
   const formatText = (text) => {
@@ -145,19 +149,19 @@ function App() {
                   </p>
                 ))}
               </div>
-              <div style={{ flex: 1 }}>
-                <h3>GPT4o Prediction</h3>
-                {openAiResult.split(/[0-9]+\.\s/).filter(Boolean).map((prediction, index) => {
-                  // Split the prediction into breed and confidence
-                  const [breed, confidence] = prediction.split(',').map(part => part.trim());
-                  return (
-                    <p key={index}>
-                      {formatText(breed)}
-                      {confidence && !isNaN(parseFloat(confidence)) ? `, Confidence: ${confidence}` : ''}
-                    </p>
-                  );
-                })}
-              </div>
+            <div style={{ flex: 1 }}>
+              <h3>GPT4o Prediction</h3>
+              {openAiResult.split(/[0-9]+\.\s/).filter(Boolean).map((prediction, index) => {
+                // Split the prediction into breed and confidence
+                const [breed, confidence] = prediction.split(',').map(part => part.trim());
+                return (
+                  <p key={index}>
+                    {formatText(breed)}
+                    {confidence && !isNaN(parseFloat(confidence)) ? <em>, Confidence: {confidence}</em> : ''}
+                  </p>
+                );
+              })}
+            </div>
             </div>
           </section>
         )}
