@@ -89,8 +89,30 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Find out what AI thinks your dog is</h1>
+        <h1>Discover your dog's breed with AI.</h1>
       </header>
+       <div
+        style={{
+          position: 'absolute',
+          top: '10px',
+          right: '10px',
+          padding: '10px',
+          // backgroundColor: '#f9f9f9',
+          border: '1px solid #ccc',
+          borderRadius: '5px',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+          fontSize: '0.9em',
+          textAlign: 'center',
+        }}
+      >
+        <p>Developed by Hannah Graham</p>
+        <p>
+          GitHub: <a href="https://github.com/hannah-r-graham/DogBreedClassifier_whoDidItBetter" target="_blank" rel="noopener noreferrer">DogBreedClassifier_whoDidItBetter</a>
+        </p>
+        <p>
+          LinkedIn: <a href="https://www.linkedin.com/in/hannah-r-graham/" target="_blank" rel="noopener noreferrer">Hannah R. Graham</a>
+        </p>
+      </div>
       <main>
         {/* <p>{selectedFile?.name}</p>
         <p>{submittedFile?.name}</p> */}
