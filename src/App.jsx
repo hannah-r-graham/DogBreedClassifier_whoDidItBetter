@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
 
+const baseURL = process.env.NODE_ENV === 'development' ? 'http://localhost:4000' : 'https://dogbreedbackend-c3fahebfdgefcwf8.eastus2-01.azurewebsites.net';
+
+
 function App() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
@@ -36,7 +39,7 @@ function App() {
 
       try {
         // Step 1: Upload the image
-        const uploadResponse = await fetch('http://localhost:4000/upload', {
+        const uploadResponse = await fetch(`${baseUrl}/upload`, {
           method: 'POST',
           body: formData,
         });
@@ -49,7 +52,7 @@ function App() {
         setUploadedImageUrl(uploadData.url);
 
         // Step 2: Classify the image using CNN
-        const classifyResponse = await fetch('http://localhost:4000/classify', {
+        const classifyResponse = await fetch(`${baseUrl}/classify`, {
           method: 'POST',
           body: formData,
         });
@@ -62,7 +65,7 @@ function App() {
         setCnnResults(classifyData.sortedPredictions);
 
         // Step 3: Analyze the image using OpenAI
-        const analyzeResponse = await fetch('http://localhost:4000/analyze', {
+        const analyzeResponse = await fetch(`${baseUrl}/analyze`, {
           method: 'POST',
           body: formData,
         });
