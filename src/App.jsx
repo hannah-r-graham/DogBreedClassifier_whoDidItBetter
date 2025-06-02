@@ -39,7 +39,7 @@ function App() {
 
       try {
         // Step 1: Upload the image
-        const uploadResponse = await fetch(`${baseUrl}/upload`, {
+        const uploadResponse = await fetch(`${baseURL}/upload`, {
           method: 'POST',
           body: formData,
         });
@@ -52,7 +52,7 @@ function App() {
         setUploadedImageUrl(uploadData.url);
 
         // Step 2: Classify the image using CNN
-        const classifyResponse = await fetch(`${baseUrl}/classify`, {
+        const classifyResponse = await fetch(`${baseURL}/classify`, {
           method: 'POST',
           body: formData,
         });
@@ -65,7 +65,7 @@ function App() {
         setCnnResults(classifyData.sortedPredictions);
 
         // Step 3: Analyze the image using OpenAI
-        const analyzeResponse = await fetch(`${baseUrl}/analyze`, {
+        const analyzeResponse = await fetch(`${baseURL}/analyze`, {
           method: 'POST',
           body: formData,
         });
